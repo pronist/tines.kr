@@ -1,9 +1,62 @@
-# Deploy process for Tines.kr
+# Tistory Neighbor Service (Tines)
+
+**Tistory Neighbor Service** is a Community system for *Tistory* that is korean blogging service. \
+if you use this service, you can connection to *Tistory* bloggers.
+
+This service is not served now. *Tistory* have been presented community system.
+
+- 2018/11 - 2019/01
+
+## Features
+
+- Login with **Tistory API**
+- **Neighbor Service** (Subscribe) between Tistory Bloggers
+- Check **new articles** in 3 days
+- **[Widget](https://github.com/pronist/tines.kr/tree/master/resources/js/widget)** for Neighbor Connection and Subscribe
+
+## Tines API
+
+<https://github.com/pronist/tines.kr/wiki>
+
+### Authentication
+
+|Name|Description|Method|
+|----|-----------|------|
+[/v1/auth/login](https://github.com/pronist/tines.kr/wiki/Authentication#login)|Sign in|POST
+[/v1/auth/logout](https://github.com/pronist/tines.kr/wiki/Authentication#logout)|Sign out|GET
+
+### Blog
+
+|Name|Description|Method|
+|----|-----------|------|
+[/v1/blogs](https://github.com/pronist/tines.kr/wiki/Blog#get-blogs)|Get registered blogs|GET
+
+### Neighbor
+
+|Name|Description|Method|
+|----|-----------|------|
+[/v1/neighbors](https://github.com/pronist/tines.kr/wiki/Neighbor#get-neighbors)|Get neighbors|GET
+[/v1/neighbors](https://github.com/pronist/tines.kr/wiki/Neighbor#append-a-new-neighbor)|Append a new neighbor|POST
+[/v1/neighbors/{name}](https://github.com/pronist/tines.kr/wiki/Neighbor#remove-a-neighbor)|Remove a neighbor|DELETE
+
+### Post
+
+|Name|Description|Method|
+|----|-----------|------|
+[/v1/posts](https://github.com/pronist/tines.kr/wiki/Post#get-posts-in-3-days)|Get posts in 3 days|GET
+
+### Subscriber
+
+|Name|Description|Method|
+|----|-----------|------|
+[/v1/subscribers](https://github.com/pronist/tines.kr/wiki/subscriber#get-subscribers)|Get subscribers|GET|
+
+## Deploy
 
 It uses **SSH**. if you don't want to use it, you can do **laravel\envoy** \
 <https://laravel.com/docs/5.7/envoy>
 
-<pre>
+```
 ~/
 ├── document_root => ~/releases/release_YmdHis
 ├── releases/
@@ -16,9 +69,9 @@ It uses **SSH**. if you don't want to use it, you can do **laravel\envoy** \
     ├── .env
     ├── cache
     └── storage
-</pre>
+```
 
-# Before run deploy
+### Before run deploy
 
 You must setting **Laravel\Collective\Remote** SSH connection.
 
@@ -30,7 +83,7 @@ You must setting **Laravel\Collective\Remote** SSH connection.
 
 <https://laravelcollective.com/docs/5.4/ssh>
 
-# Configuration
+### Configuration
 
 |Name|env|default|description|Action|
 |----|---|-------|-----------|-------|
@@ -42,12 +95,8 @@ You must setting **Laravel\Collective\Remote** SSH connection.
 |dist|DEPLOY_DIST|'release_' . date('YmdHis')|Distribution directory name|git clone \<remote\> \<dist\>
 |group|DEPLOY_GROUP|www-data|Deployment group|chgrp -h -R \<group\> \<releases\>/\<dist\>
 
-# How to use
+## License
 
-```bash
-php artisan deploy
-```
+[MIT](https://github.com/pronist/tines/blob/master/LICENSE)
 
-# Reference
-
-<https://github.com/appkr/l5code/blob/master/envoy.blade.php>
+Copyright 2018-2019. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
