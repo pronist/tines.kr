@@ -16,40 +16,7 @@ This service is not served now. *Tistory* have been presented community system.
 
 ## Tines API
 
-<https://github.com/pronist/tines.kr/wiki>
-
-### Authentication
-
-|Name|Description|Method|
-|----|-----------|------|
-[/v1/auth/login](https://github.com/pronist/tines.kr/wiki/Authentication#login)|Sign in|POST
-[/v1/auth/logout](https://github.com/pronist/tines.kr/wiki/Authentication#logout)|Sign out|GET
-
-### Blog
-
-|Name|Description|Method|
-|----|-----------|------|
-[/v1/blogs](https://github.com/pronist/tines.kr/wiki/Blog#get-blogs)|Get registered blogs|GET
-
-### Neighbor
-
-|Name|Description|Method|
-|----|-----------|------|
-[/v1/neighbors](https://github.com/pronist/tines.kr/wiki/Neighbor#get-neighbors)|Get neighbors|GET
-[/v1/neighbors](https://github.com/pronist/tines.kr/wiki/Neighbor#append-a-new-neighbor)|Append a new neighbor|POST
-[/v1/neighbors/{name}](https://github.com/pronist/tines.kr/wiki/Neighbor#remove-a-neighbor)|Remove a neighbor|DELETE
-
-### Post
-
-|Name|Description|Method|
-|----|-----------|------|
-[/v1/posts](https://github.com/pronist/tines.kr/wiki/Post#get-posts-in-3-days)|Get posts in 3 days|GET
-
-### Subscriber
-
-|Name|Description|Method|
-|----|-----------|------|
-[/v1/subscribers](https://github.com/pronist/tines.kr/wiki/subscriber#get-subscribers)|Get subscribers|GET|
+**[Tines API](https://github.com/pronist/tines.kr/wiki)** services are for Developers. If you use Tines API, you can get informations about **Tines**. User Authentication; **Login and Logout**, Informations; **Blogs, Subscribers, Neighbors**. but, **This API is not served now**.
 
 ## Deploy
 
