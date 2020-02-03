@@ -20,6 +20,6 @@ This service is not served now. *Tistory* have been presented community system.
 
 ## License
 
-[MIT](https://github.com/pronist/tines/blob/master/LICENSE)
+[MIT](https://github.com/pronist/tines.kr/blob/master/LICENSE)
 
 Copyright 2018-2019. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
