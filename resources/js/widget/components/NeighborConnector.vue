@@ -4,9 +4,9 @@
         div(class="item" v-for="thumbnail in thumbnails")
             div(class="thumbnail")
                 .landscape(alt="프로필 사진"
-                    :style=`{ backgroundImage: 
-                        'url(' + thumbnail.profileImageUrl + '),' 
-                      + 'url(https://i1.daumcdn.net/thumb/S42x42/?fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fblog%2Fadmin%2Fprofile_default_0' + (Math.floor(Math.random()*6)+1) + '.png)' }` 
+                    :style=`{ backgroundImage:
+                        'url(' + thumbnail.profileImageUrl + '),'
+                      + 'url(https://i1.daumcdn.net/thumb/S42x42/?fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fblog%2Fadmin%2Fprofile_default_0' + (Math.floor(Math.random()*6)+1) + '.png)' }`
                 )
                 div(class="meta")
                     a(class="title" @click="open(thumbnail.url, $event)" href="#") {{ thumbnail.title }}
@@ -26,7 +26,7 @@
                     div(slot="no-results")
     //- template
     div(class="tines-connector")
-        a(class="title" @click="open('http://tines.kr', $event)" href="#") 
+        a(class="title" @click="open('http://tines.kr', $event)" href="#")
             | #[span(style="color: #f54") 티네스] 이웃 커넥터
         Tabs(class="tab" @changed="tabChanged" :options="{ useUrlFragment: false }")
             Tab(class="neighbors" name="내 이웃" id="neighbors")
@@ -49,7 +49,7 @@
         mixins: [open],
         props: [
             'email',
-            'name', 
+            'name',
             'message'
         ],
         data() {

@@ -11,7 +11,7 @@ use App\Classes\Authentication;
 use Tistory\Exceptions\AuthenticationException;
 
 class AuthController extends Controller
-{   
+{
     /**
     * Create a new AuthController instance.
     *
@@ -29,11 +29,11 @@ class AuthController extends Controller
         $state = json_decode($request->get('state'));
 
         $access_token = null;
-        
+
         if($code) {
             try {
                 /** 티스토리 API */
-                $access_token = \Tistory\Auth::getAccessToken(
+                $access_token = \Pronist\Tistory\Auth::getAccessToken(
                     env('TISTORY_CLIENT_ID'),
                     env('TISTORY_SECRET_KEY'),
                     env('TISTORY_CALLBACK'),
@@ -66,20 +66,20 @@ class AuthController extends Controller
 
                 /** 티스토리 엑세스토큰을 세션에 저장합니다. */
                 $request->session()->put('access_token', $access_token);
-                
+
                 /** 세션 시작시간을 저장합니다. */
                 $request->session()->put('started', time());
 
-                /** 
+                /**
                  * 상태 쿼리 옵션
-                 * 
+                 *
                  * 슬프게도 티스토리와 연동하여 로그인 해야 하므로
                  * 모든 web 로그인 요청의 끝은 결국 GET auth/login 으로 도달합니다.
                  * 따라서 해당 컨트롤러에서 모든 것을 처리 해야하고
                  * 그것은 일반적인 로그인 뿐만아니라, 구독 등의 로그인이 별도로 필요한
                  * 행위를 할 때에도 해당 컨트롤러를 거쳐야합니다.
-                 * 
-                 * 상태 쿼리옵션은 일반적인 로그인의 행동 이후 
+                 *
+                 * 상태 쿼리옵션은 일반적인 로그인의 행동 이후
                  * 다음(리다이렉트, 구독 등)을 만들어 줄 수 있는 유일한 통로가 됩니다.
                  */
 
@@ -91,7 +91,7 @@ class AuthController extends Controller
                     case 'subscribe':
                         try {
                             $client->request('post', 'neighbors', [
-                                'headers' => [ 
+                                'headers' => [
                                     'Authorization' => 'Bearer '. $request->session()->get('token')
                                 ],
                                 'form_params' => [
@@ -107,9 +107,9 @@ class AuthController extends Controller
                     default:
                         break;
                 }
-                /** 
+                /**
                  * 엑세스토큰이 붙는 경우는 다른 앱에서
-                 * 티네스에 로그인을 요청을 위임한 경우가 됩니다. 
+                 * 티네스에 로그인을 요청을 위임한 경우가 됩니다.
                  */
                 $redirect_uri = isset($state->redirect_uri)
                     ? $state->redirect_uri.'?access_token='.$response->token
@@ -122,9 +122,10 @@ class AuthController extends Controller
             }
         }
         else {
-            return redirect(\Tistory\Auth::getPermissionUrl(
+            return redirect(\Pronist\Tistory\Auth::getPermissionUrl(
                 env('TISTORY_CLIENT_ID'),
-                env('TISTORY_CALLBACK')
+                env('TISTORY_CALLBACK'),
+                'code'
             ));
         }
     }
@@ -136,7 +137,7 @@ class AuthController extends Controller
             Authentication::logout($client);
 
             return redirect('/');
-        }           
+        }
         catch(\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);
         }

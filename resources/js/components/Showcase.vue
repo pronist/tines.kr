@@ -4,8 +4,8 @@
             .header
                 .tit 블로그에 #[span(style="color: #FF5544") 티네스 이웃커넥터]를 추가해보세요.
                 .subtit 이제 더 이상 옆집 이웃커넥터를 사용할 필요가 없습니다!
-                a.visit(href="https://appwriter.tistory.com/149" target="_blank") 이웃커넥터 추가하기
-            iframe(src=`/widget/neighbor-connector?name=appwriter&message=구독하기` width="280" height="420" frameBorder="0")
+                a.visit(href="https://pronist.tistory.com" target="_blank") 이웃커넥터 추가하기
+            iframe(src=`/widget/neighbor-connector?name=pronist&message=구독하기` width="280" height="420" frameBorder="0")
 </template>
 
 <script>

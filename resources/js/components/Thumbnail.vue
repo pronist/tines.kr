@@ -12,7 +12,7 @@
             .user
                 a.tit(:href="thumbnail.url" target="_blank") {{ thumbnail.title }}
                 .blogger {{ thumbnail.nickname }}
-            .description 
+            .description
                 span(v-if="thumbnail.description") {{ cutByte(thumbnail.description, 110) }}
         .links
             span.auth(v-if="token")
@@ -28,7 +28,7 @@
                             a.unsubscribe(v-if="!added_parameters.is_index" @click="unsubscribe") 구독취소
                         span(v-else)
                             a.subscribe(v-if="added_parameters.is_add" @click="subscribe") 구독하기
-                            
+
 </template>
 
 <script>
@@ -65,7 +65,7 @@
                 });
             },
             unsubscribe(e) {
-                let 
+                let
                     self = this,
                     $target = $(e.target),
                     $box = $target.parents('.box')
@@ -80,13 +80,13 @@
                 });
             },
             remove(e) {
-                axios.delete(`${process.env.APP_URL}/blogs/${this.thumbnail.name}`)
+                axios.delete(`http://homestead.test/blogs/${this.thumbnail.name}`)
                 .then(() => {
                     toastr.warning('블로그가 등록 해제되었습니다.');
                 });
             },
             append(e) {
-                axios.post(`${process.env.APP_URL}/blogs`, { name: this.thumbnail.name })
+                axios.post(`http://homestead.test/blogs`, { name: this.thumbnail.name })
                 .then(() => {
                     toastr.success('블로그가 등록되었습니다.')
                 });
@@ -111,7 +111,7 @@
 
 <style lang="stylus" scoped>
     $width = 310px
-    
+
     .box
         float left
         margin 5px
@@ -155,7 +155,7 @@
     #toast-container
         position fixed
         bottom 25px
-        > .toast 
+        > .toast
             background-image none !important
             .toast-message
                 position relative

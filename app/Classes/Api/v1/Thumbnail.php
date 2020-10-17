@@ -42,10 +42,10 @@ class Thumbnail
         ]);
     }
 
-    public static function getUnregistered($registered, $access_token) 
+    public static function getUnregistered($registered, $access_token)
     {
-        if(auth()->check()) { 
-            $user = \Tistory\Blog::info($access_token);
+        if(auth()->check()) {
+            $user = \Pronist\Tistory\Blog::info($access_token);
             $unregistered = [];
 
             /** 블로그 중 등록되지 않은 블로그만 추가합니다. */
@@ -80,7 +80,7 @@ class Thumbnail
             'default'         => $blog->default
         ];
     }
-    
+
     public static function get($blogs)
     {
         $thumbnails = [];

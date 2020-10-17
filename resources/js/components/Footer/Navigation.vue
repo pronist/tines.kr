@@ -3,18 +3,18 @@
         .box(style="margin-left: 0px")
             .tit 소개
             .items
-                a.item(href="https://appwriter.tistory.com/133" target="_blank") 티네스가 뭔가요?
+                a.item(href="https://pronist.tistory.com" target="_blank") 티네스가 뭔가요?
         .box
             .tit 가이드북
             .items
-                a.item(href="https://appwriter.tistory.com/149" target="_blank") 이웃커넥터 설정하기
+                a.item(href="https://pronist.tistory.com" target="_blank") 이웃커넥터 설정하기
                 a.item(href="https://docs.tines.kr/" target="_blank") API 가이드북
         .box
             .tit 개발자
             .items
                 a.item(href="https://github.com/pronist" target="_blank") 깃허브
                 a.item(href="https://brunch.co.kr/@pronist#info" target="_blank") 브런치
-                a.item(href="https://appwriter.tistory.com" target="_blank") 티스토리 블로그
+                a.item(href="https://pronist.tistory.com" target="_blank") 티스토리 블로그
         .box(style="margin-right: 0px")
             .tit 티스토리 프로젝트
             .items

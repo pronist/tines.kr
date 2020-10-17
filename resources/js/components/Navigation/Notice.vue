@@ -1,7 +1,7 @@
 <template lang="pug">
     #notice
         i.fas.fa-volume-down
-        a.notice(href="https://appwriter.tistory.com/133" target="_blank") 티스토리 이웃 서비스, 티네스(Tines)를 소개합니다.
+        a.notice(href="https://pronist.tistory.com" target="_blank") 티스토리 이웃 서비스, 티네스(Tines)를 소개합니다.
 </template>
 
 <script>

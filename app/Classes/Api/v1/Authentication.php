@@ -34,8 +34,8 @@ class Authentication
 
         /** 유저 블로그 정보를 얻어옵니다. */
         try {
-            $user = \Tistory\Blog::info($access_token);
-        }       
+            $user = \Pronist\Tistory\Blog::info($access_token);
+        }
         catch(BadResponseException $e) {
             return response()->json(['message' => $e->getMessage()], 500);
         }
@@ -59,12 +59,12 @@ class Authentication
                     if($registerd) {
                         Thumbnail::build((object) $blog, $registerd, 'update');
                     }
-                }  
+                }
             }
 
             /** api 로그인 */
             $token = auth()->claims(['access_token' => $access_token])->login($currentUser);
-            
+
             return response()->json([
                 'token' => $token,
                 'token_type' => 'bearer',
