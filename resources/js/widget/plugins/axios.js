@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let instance = axios.create({
-  'baseURL': 'http://homestead.test/v1'
+  'baseURL': process.env.APP_API_URL + '/' + process.env.APP_API_VERSION
 });
 
 export default instance;

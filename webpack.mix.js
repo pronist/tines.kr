@@ -25,11 +25,7 @@ mix.webpackConfig({
         symlinks: false
     },
     plugins: [
-        new Dotenv({
-            path: process.env.NODE_ENV == 'production' 
-                ? './.env.example'
-                : './.env'
-        })
+        new Dotenv()
     ],
 });
 mix.js('resources/js/app.js', 'public/js')

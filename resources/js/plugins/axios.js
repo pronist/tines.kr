@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    'baseURL': 'http://homestead.test/v1'
+    'baseURL': process.env.APP_API_URL + '/' + process.env.APP_API_VERSION
 });

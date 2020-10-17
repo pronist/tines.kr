@@ -80,13 +80,13 @@
                 });
             },
             remove(e) {
-                axios.delete(`http://homestead.test/blogs/${this.thumbnail.name}`)
+                axios.delete(`${process.env.APP_API_URL}/blogs/${this.thumbnail.name}`)
                 .then(() => {
                     toastr.warning('블로그가 등록 해제되었습니다.');
                 });
             },
             append(e) {
-                axios.post(`http://homestead.test/blogs`, { name: this.thumbnail.name })
+                axios.post(`${process.env.APP_API_URL}/blogs`, { name: this.thumbnail.name })
                 .then(() => {
                     toastr.success('블로그가 등록되었습니다.')
                 });
